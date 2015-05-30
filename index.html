@@ -4,21 +4,110 @@
 	<title>Welcome!</title>
 	<meta charset='utf-8'>
 	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Hind:400,500,300' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='/css/normalize.css'>
 	<style type="text/css">
 		body {
 			background-color: #384249;
+		}
+
+		#container {
+			margin-top: 10%;
+			margin-left: 2%;
+			margin-right: 2%;
 		}
 		h1 {
 			color: rgb(255, 255, 88);
 			font-family: 'Libre Baskerville', serif;
 			font-size: 5em;
-			margin-top: 10%;
-			margin-left: 2%;
+			margin-bottom: 30px;	
+		}
+
+		h2 {
+			color: #384249;
+		}
+
+		.highlight {
+			background: white;
+		}
+
+		#large {
+			font-size: 2em;
+		}
+
+		#box-container {
+			margin-top: 40px;
+		}
+
+		.box {
+			padding: 20px;
+			margin: 10px 10px 0 0;
+			width: 20%;
+			height: 100px;
+			display: inline-block;
+			text-align: center;
+			position: relative;
+		}
+
+		.box:hover {
+			background-color: white;
+		}
+
+		.one {
+			background-color: rgb(108, 108, 210);
+		}
+
+		.two {
+			background-color: rgb(108, 210, 191);
+		}
+
+		.three {
+			background-color: rgb(210, 143, 108);
+		}
+
+		.four {
+			background-color: rgb(161, 108, 210);
+		}
+
+		.box h2 {
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+		}
+
+		.crosshair {
+			cursor: crosshair;
 		}
 
 	</style>
 </head>
 <body>
-	<h1>Hello, and welcome to my site!</h1>
+	<main id='container'>
+		<h1>Hello, and</br>welcome to my site!</h1>
+		<h2><span class='highlight'>Wanna peruse some projects?</span></h2>
+		<h2><span class='highlight'>Take a gander by clickin' on the boxes below:<span id='highlight'></h2>
+		<div id='box-container'>
+			<a class='box one crosshair' href='calculator.html'>
+				<h2>CALCULATOR</h2>
+			</a>
+			<a class='box two crosshair' href='animate.html'>
+				<h2>ANIMATE</h2>
+			</a>
+			<a class='box three crosshair' href='google_maps_api.html'>
+				<h2>GOOGLE MAP</h2>
+			</a>
+			<a class='box four crosshair' href='index-simon.html'>
+				<h2>SIMPLE SIMON</h2>
+			</a>
+		</div>
+	</main>
+	<script src='/js/jquery.js' type="text/javascript"></script>
+	<script type="text/javascript">
+		"use strict"
+		$('.one').click()
+
+
+
+	</script>
 </body>
 </html>
