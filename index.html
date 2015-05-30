@@ -79,11 +79,20 @@
 			cursor: crosshair;
 		}
 
+		#social {
+			color: rgb(255, 255, 88);
+			text-decoration: none;
+		}
+
+		#social:hover {
+			color: rgb(84, 206, 250);
+		}
+
 	</style>
 </head>
 <body>
 	<main id='container'>
-		<h1>Hello, and</br>welcome to my site!</h1>
+		<h1>Howdy! I'm <a href='http://twitter.com/jenniwhite6/' id='social'>Jenni.</a></span></h1>
 		<h2><span class='highlight'>Wanna peruse some projects?</span></h2>
 		<h2><span class='highlight'>Take a gander by clickin' on the boxes below:<span id='highlight'></h2>
 		<div id='box-container'>
@@ -101,5 +110,28 @@
 			</a>
 		</div>
 	</main>
+
+	<script src='/js/jquery.js' type="text/javascript"></script>
+	<script>
+	(function () {
+
+		"use strict";
+
+		var socialInfo = function() {
+			$('#social').html('@jenniwhite6');
+		};
+
+		var normalInfo = function() {
+			$('#social').html('Jenni.');
+		}
+
+		$('#social').hover(socialInfo, normalInfo);
+
+	})();
+	</script>
 </body>
 </html>
+
+
+
+
