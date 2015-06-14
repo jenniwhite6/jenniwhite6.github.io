@@ -1,0 +1,77 @@
+body {
+	background-color: #384249;
+}
+
+.main-container {
+	margin-top: 10%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+h1 {
+	color: rgb(255, 255, 88);
+	font-family: 'Libre Baskerville', serif;
+	font-size: 5em;
+	margin-bottom: 30px;	
+}
+
+h2 {
+	color: #384249;
+}
+
+.highlight {
+	background: white;
+}
+
+.boxes-container {
+	margin-top: 40px;
+}
+
+.box {
+	padding: 20px;
+	margin: 10px 10px 0 0;
+	width: 20%;
+	height: 100px;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+}
+
+.box:hover {
+	background-color: white;
+}
+
+.one {
+	background-color: rgb(108, 108, 210);
+}
+
+.two {
+	background-color: rgb(108, 210, 191);
+}
+
+.three {
+	background-color: rgb(210, 143, 108);
+}
+
+.four {
+	background-color: rgb(161, 108, 210);
+}
+
+.box h2 {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+}
+
+.crosshair {
+	cursor: crosshair;
+}
+
+#social {
+	color: rgb(255, 255, 88);
+	text-decoration: none;
+}
+
+#social:hover {
+	color: rgb(84, 206, 250);
+}

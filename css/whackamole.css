@@ -1,0 +1,91 @@
+/* Generic Grid Parameters */
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Body and game-container styling */
+
+body {
+	color: #fff;
+	background-color: rgb(101, 223, 239);
+	font-family: 'Special Elite', cursive;
+}
+
+#game {
+	margin-left: 100px;
+}
+
+/* Header Styling */
+
+header {
+	font-size: 40px;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+/* Game grid styling */
+
+.game-info {
+	font-size: 20px;
+	margin: 0px;
+	float: left;
+}
+
+.container {
+	width: 500px;
+  	height: 500px;
+  	top: 150px;
+  	left: 400px;
+  	position: absolute;
+	cursor: url(/img/lil-duck.png), default;
+}
+
+.row {
+	height: 33.3%;
+	width: 100%;
+	margin: 0;
+}
+
+.box {
+	float: left;
+	height: 100%;
+	width: 33.3%;
+}
+
+/* Specific mole styling */
+
+.mole {
+	height: 100%;
+	width: 100%;
+	display: none;
+	background-image: url(/img/blue-bowl.png);
+	background-repeat: no-repeat;
+	background-size: 150px 150px;
+}
+
+.hide {
+	display: none;
+}
+
+/* THE button! */
+
+button {
+	padding: 20px;
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 10px;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quack-A-Bowl</title>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' href='/css/normalize.css'>
+	<link rel='stylesheet' href='/css/whackamole.css'>
+	<link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id='game'>
+
+		<header>
+			<h1>Quack-A-Bowl</h1>
+		</header>
+		<div class='game-info'>
+			<h2>Points: <span id='score'>0</span></h2>
+			<h2>Level: <span id='level'>1</span></h2>
+			<button class='start'>Start Quackin'</button>
+		</div>
+
+		<div class='container'>
+		
+		<audio id='quack'>
+	    	<source src='/audio/quack.wav' type='audio/wav'></source>
+		</audio>
+
+			<div class='top row'>
+				<div class='box one'>
+					<div class='mole'></div>
+				</div>
+				<div class='box two'>
+					<div class='mole'></div>
+				</div>
+				<div class='box three'>
+					<div class='mole'></div>
+				</div>
+			</div>
+
+			<div class='middle row'>
+				<div class='box four'>
+					<div class='mole'></div>
+				</div>
+				<div class='box five'>
+					<div class='mole'></div>
+				</div>
+				<div class='box six'>
+					<div class='mole'></div>
+				</div>
+			</div>
+
+			<div class='bottom row'>
+				<div class='box seven'>
+					<div class='mole'></div>
+				</div>
+				<div class='box eight'>
+					<div class='mole'></div>
+				</div>
+				<div class='box nine'>
+					<div class='mole'></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script src='/js/jquery.js'></script>
+	<script>
+	(function() {
+		"use strict";
+
+		var game = {
+
+			moles: $('.mole'),
+			boxes: $('.box'),
+			button: $('.start'),
+			quack: document.getElementById('quack'),
+			score: 0,
+			counter: 0,
+			level: 1,
+			intervalTime: 2000,
+			
+			init: function() {
+
+				var timer = setInterval(function() {
+					
+					if (game.counter > 6) {
+
+						// start new level at faster speed
+						clearInterval(timer);
+						game.levelUp();
+						game.speedUp();
+
+						// notifications re: new level
+						alert("Congrats! It's time for level " + game.level + "!!!");
+						game.button.html('Begin Level ' + game.level);
+
+					} else {
+
+						// fade random mole in + out
+						game.getRandomMole();
+
+						// add one to counter
+						game.counter++;
+						console.log('During game counter: ' + game.counter);
+					}
+				}, game.intervalTime);
+			},
+
+			getRandomMole: function() {
+
+				// generate random number
+				var randomNumber = Math.floor(Math.random() * 9);
+				var randomMole = game.moles[randomNumber];
+
+				// grab random mole and fade in/out
+				$(randomMole).fadeIn(this.intervalTime/2).fadeOut(this.intervalTime/4, function() {
+					$(randomMole).attr('style', '');
+				});
+			},
+
+			userClickMole: function() {
+
+				game.moles.click(function() {
+						
+					// remove style attribute added by fadeIn/Out
+					$(this).attr('style', '');
+
+					// quack! and increase score by one
+					game.quack.play();
+					game.increaseScore();
+				});
+			},
+
+			increaseScore: function() {
+
+				// add one to score
+				game.score++;
+				console.log('Score: ' + game.score);
+
+				// change scoreboard text
+				$('#score').html(game.score);
+			},
+
+			levelUp: function() {
+
+				// add one to level
+				this.level++;
+				$('#level').html(game.level);
+
+				// re-enable button functionality to begin the level
+				game.button.prop('disabled', false);
+
+				// reset counter to zero to begin next round
+				this.counter = 0;
+			},
+
+			speedUp: function() {
+
+				// decrease interval length
+				game.intervalTime -= 250;
+				console.log('New interval time: ' + game.intervalTime);
+			}
+		};
+
+		game.button.click(function() {
+
+			game.init();
+
+			// disable button functionality while level is played - prevents addition of extra interval(s)
+			$(this).prop('disabled', true);
+		});
+
+		// run event listener attached to the moles
+		game.userClickMole();		
+
+	})();
+	</script>
+
+</body>
+</html>
